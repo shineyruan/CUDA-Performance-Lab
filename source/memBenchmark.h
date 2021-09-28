@@ -40,7 +40,8 @@ private:
   std::chrono::time_point<clock_> beg_;
 };
 
-void profileH2HCopies(float *h_a, float *h_b, unsigned int n, char *desc) {
+void profileH2HCopies(float *h_a, float *h_b, unsigned int n,
+                      const char *desc) {
   printf("\nHost to Host %s Memcpy\n", desc);
 
   unsigned int bytes = n * sizeof(float);
@@ -66,7 +67,7 @@ void profileH2HCopies(float *h_a, float *h_b, unsigned int n, char *desc) {
 }
 
 void profileCopies(float *h_a, float *h_b, float *d, unsigned int n,
-                   char *desc) {
+                   const char *desc) {
   printf("\n%s transfers\n", desc);
 
   unsigned int bytes = n * sizeof(float);
